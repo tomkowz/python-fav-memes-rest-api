@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -f api/resources/memes.db
+sqlite3 api/resources/memes.db < api/resources/schema.sql

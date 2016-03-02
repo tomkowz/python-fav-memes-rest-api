@@ -2,7 +2,7 @@ class Meme:
 
     def __init__(self):
         self._keywords = None
-        self._image_url = None
+        self._filename = None
 
     @property
     def keywords(self):
@@ -12,8 +12,8 @@ class Meme:
         self._keywords = v
 
     @property
-    def image_url(self):
-        return self._image_url
+    def filename(self):
+        return self._filename
 
-    def image_url(self, v):
-        self._image_url = v
+    def filename(self, v):
+        self._filename = v

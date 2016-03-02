@@ -6,7 +6,7 @@ class MemeDTO:
     def to_json(meme):
         json = dict()
         json['keywords'] = meme.keywords
-        json['image_url'] = meme.image_url
+        json['filename'] = meme.filename
         return json
 
     @staticmethod
@@ -16,7 +16,7 @@ class MemeDTO:
         if 'keywords' in json:
             meme.keywords = json['keywords']
 
-        if 'image_url' in json:
-            meme.image_url = json['image_url']
+        if 'filename' in json:
+            meme.filename = json['filename']
 
         return meme

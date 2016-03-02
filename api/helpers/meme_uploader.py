@@ -47,5 +47,5 @@ class MemeUploader:
     def _insert_meme(keywords, filename):
         meme = Meme()
         meme.keywords = keywords
-        meme.image_url = filename
+        meme.filename = filename
         return MemeDAO.insert(meme), meme

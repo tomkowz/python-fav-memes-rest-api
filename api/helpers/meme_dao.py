@@ -6,12 +6,12 @@ class MemeDAO:
 
     @staticmethod
     def get_all():
-        cursor = flask.g.db.execute('select keywords, image_url from memes order by id desc')
+        cursor = flask.g.db.execute('select keywords, filename from memes order by id desc')
         return MemeDAO.parse_rows(cursor.fetchall())
 
     @staticmethod
     def get_one(id):
-        query_f = 'select keywords, image_url from memes where id={}'
+        query_f = 'select keywords, filename from memes where id={}'
         cursor = flask.g.db.execute(query_f.format(id))
         memes = MemeDAO.parse_rows(cursor.fetchall())
         if len(memes) == 1:
@@ -25,12 +25,12 @@ class MemeDAO:
             print 'Meme keywords is None'
             return False
 
-        if meme.image_url is None:
+        if meme.filename is None:
             print 'Meme image url is None'
             return False
 
-        flask.g.db.execute('insert into memes (keywords, image_url) values (?, ?)',
-            [','.join(meme.keywords), meme.image_url])
+        flask.g.db.execute('insert into memes (keywords, filename) values (?, ?)',
+            [','.join(meme.keywords), meme.filename])
         flask.g.db.commit()
         return True
 
@@ -39,7 +39,7 @@ class MemeDAO:
         if phrase is None:
             return list()
 
-        query_f = 'select keywords, image_url from memes where keywords like \'%{}%\''
+        query_f = 'select keywords, filename from memes where keywords like \'%{}%\''
         cursor = flask.g.db.execute(query_f.format(phrase))
         return MemeDAO.parse_rows(cursor.fetchall())
 
@@ -49,7 +49,7 @@ class MemeDAO:
         for row in rows:
             meme = Meme()
             meme.keywords = row[0].split(',')
-            meme.image_url = row[1]
+            meme.filename = row[1]
             memes.append(meme)
 
         return memes
