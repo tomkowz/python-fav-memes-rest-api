@@ -1,0 +1,14 @@
+<!doctype_html>
+<title>Favourite Memes</title>
+<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+<div class="page">
+  <p class="top_nav">
+    <a href="{{ url_for('main') }}">Home</a> |
+    <a href="{{ url_for('add_meme_page') }}">Add Meme</a>
+  </p>
+
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>
