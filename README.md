@@ -13,11 +13,11 @@ The service allows you to store your favourite memes, access them via object id,
 - *run.py* - use to run the service.
 
 ### Endpoints
-- GET /memes
-- GET /memes/id
-- POST /memes
-- POST /memes/search
-- GET /uploads/filename
+- GET /api/memes
+- GET /api/memes/id
+- POST /api/memes
+- POST /api/memes/search
+- GET /api/uploads/filename
 
 ### Run
 `python run.py`
