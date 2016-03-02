@@ -12,6 +12,13 @@ The service allows you to store your favourite memes, access them via object id,
 - *recreate_db* - shell script that removed database and create another one.
 - *run.py* - use to run the service.
 
+### Endpoints
+- GET /memes
+- GET /memes/id
+- POST /memes
+- POST /memes/search
+- GET /uploads/filename
+
 ### Run
 `python run.py`
 
