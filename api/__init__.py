@@ -7,7 +7,7 @@ app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'resources/memes.db'),
     UPLOAD_FOLDER=os.path.join(app.root_path, 'uploads'),
     ALLOWED_EXTENSIONS = set(['jpg', 'png', 'gif', 'jpeg']),
-    DEBUG=True,
+    DEBUG=False,
     SECRET_KEY='dj399-4idcx-d9vbx-anbc9-39dmc'
 ))
 
